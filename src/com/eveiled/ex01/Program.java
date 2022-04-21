@@ -8,7 +8,9 @@ public class Program {
     public static Integer frequencyCounter(String word, String[] splitString) {
 
         long count = 0L;
-        count = Arrays.stream(splitString).filter((x) -> x.equals(word)).count();
+        count = Arrays.stream(splitString)
+                .filter((x) -> x.equals(word))
+                .count();
         return  (int)count;
     }
 
@@ -69,8 +71,14 @@ public class Program {
 
     private static double findDenominator(List<Integer> frequencyA, List<Integer> frequencyB) {
 
-        double a = Math.sqrt(frequencyA.stream().map((x) -> Math.pow(x, 2)).mapToInt((x) -> (int) Math.round(x)).sum());
-        double b = Math.sqrt(frequencyB.stream().map((x) -> Math.pow(x, 2)).mapToInt((x) -> (int) Math.round(x)).sum());
+        double a = Math.sqrt(frequencyA.stream()
+                .map((x) -> Math.pow(x, 2))
+                .mapToInt((x) -> (int) Math.round(x))
+                .sum());
+        double b = Math.sqrt(frequencyB.stream()
+                .map((x) -> Math.pow(x, 2))
+                .mapToInt((x) -> (int) Math.round(x))
+                .sum());
         return a * b;
     }
 
