@@ -7,13 +7,9 @@ public class Program {
 
     public static Integer frequencyCounter(String word, String[] splitString) {
 
-        int count = 0;
-        for (int i = 0; i < splitString.length; i++) {
-            if (splitString[i].equals(word)) {
-                count++;
-            }
-        }
-        return count;
+        long count = 0L;
+        count = Arrays.stream(splitString).filter((x) -> x.equals(word)).count();
+        return  (int)count;
     }
 
 
@@ -61,18 +57,10 @@ public class Program {
 
     private static float findNumerator(List<Integer> frequencyA, List<Integer> frequencyB){
         int numerator = 0;
-        Integer[] arrA = new Integer[frequencyA.size()];
-        int p = 0;
-        for (Integer item: frequencyA) {
-            arrA[p] = item;
-            p++;
-        }
-        Integer[] arrB = new Integer[frequencyB.size()];
-        p = 0;
-        for (Integer item: frequencyB) {
-            arrB[p] = item;
-            p++;
-        }
+
+        Integer[] arrA = frequencyA.toArray(new Integer[0]);
+        Integer[] arrB = frequencyB.toArray(new Integer[0]);
+
         for (int i = 0; i < arrA.length; i++) {
             numerator += arrA[i] * arrB[i];
         }

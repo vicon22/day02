@@ -1,10 +1,7 @@
 package com.eveiled.ex00;
 
 import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Program {
@@ -85,7 +82,6 @@ public class Program {
             while ((b = fis0.read()) != -1) {
                 str = str + (char)b;
             }
-            //System.out.println(str);
             magicNumbers = str.split("\n");
             type = new String[magicNumbers.length][];
             for (int i = 0; i < magicNumbers.length; i++) {
